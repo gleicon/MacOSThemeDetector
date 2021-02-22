@@ -197,7 +197,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     self.logInfoIfVerbose("Task succeeded.")
                 } else {
                     self.logInfoIfVerbose("Task failed: \(status)")
-                }
+                }   
             }
         }
         return true
