@@ -39,7 +39,6 @@ class PrefenceViewController: NSViewController {
         let request = AF.request(valURL, method: .post, parameters: ["body": "ThemeTest"])
         
         request.responseString { (data) in
-            print(data.result)
             switch data.result {
             case .success:
                 self.webHookTesterOutput.string = data.value!
@@ -67,9 +66,6 @@ class PrefenceViewController: NSViewController {
 
         if fileDialog.runModal() == NSApplication.ModalResponse.OK {
             let result = fileDialog.url
-            if prefs.verboseLogging{
-                print(result?.relativePath)
-            }
             scriptPath.stringValue = result!.relativePath
         }
         return
@@ -99,9 +95,6 @@ class PrefenceViewController: NSViewController {
     }
     
     func savePreferences() {
-        if prefs.verboseLogging {
-            print("saving")
-        }
         prefs.programPath = scriptPath.stringValue
         prefs.verboseLogging = self.verboseLoggingBool
         prefs.programTimeout = Int(self.programTimeout.intValue)

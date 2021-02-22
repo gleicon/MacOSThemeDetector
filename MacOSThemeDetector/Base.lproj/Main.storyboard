@@ -24,6 +24,10 @@
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="wal-Hd-BN1"/>
+                                        <menuItem title="Item" id="ZZd-EW-m9A">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="LUX-rw-L6d"/>
                                         <menuItem title="About MacOSThemeDetector" id="5kV-Vb-QxS">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
@@ -56,6 +60,7 @@
                         <outlet property="firstMenuItem" destination="th6-eF-5sh" id="URJ-L7-l5j"/>
                         <outlet property="menu" destination="uQy-DD-JDr" id="S6f-li-4Xs"/>
                         <outlet property="scriptStatusMenuItem" destination="Ea6-6h-5Y1" id="PtI-IT-gk3"/>
+                        <outlet property="webhookStatusMenuItem" destination="ZZd-EW-m9A" id="VVM-2m-b0M"/>
                     </connections>
                 </customObject>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
@@ -299,6 +304,6 @@ Gw
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="VvZ-dP-kcD"/>
+        <segue reference="547-SB-u7i"/>
     </inferredMetricsTieBreakers>
 </document>

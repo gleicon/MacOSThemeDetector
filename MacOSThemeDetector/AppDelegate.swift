@@ -15,10 +15,7 @@ extension OSLog {
     static let viewCycle = OSLog(subsystem: subsystem, category: "viewcycle")
 }
 
-func logInfo(_ items: Any...) {
-    let msg: [String] = items.compactMap { String(describing: $0) }
-    os_log("MacOSThemeDetector: %@", log: OSLog.viewCycle, type: .info, msg.joined(separator: " "))
-}
+
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -29,10 +26,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var menu: NSMenu?
     @IBOutlet weak var firstMenuItem: NSMenuItem?
     @IBOutlet weak var scriptStatusMenuItem: NSMenuItem!
+    @IBOutlet weak var webhookStatusMenuItem: NSMenuItem!
     
     let prefs = Preferences()
 
-
+    func logInfoIfVerbose(_ items: Any...) {
+        if self.prefs.verboseLogging {
+            let msg: [String] = items.compactMap { String(describing: $0) }
+            os_log("MacOSThemeDetector: %@", log: OSLog.viewCycle, type: .info, msg.joined(separator: " "))
+        }
+    }
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         self.isDark = false
         self.switchThemeStatusBasedOnUserPref()
@@ -42,7 +46,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             forName: Notification.Name("AppleInterfaceThemeChangedNotification"),
             object: nil,
             queue: nil) {
-                (notification) in self.monitorTheme()
+                (notification) in self.switchThemeStatusBasedOnUserPref()
             }
  
     }
@@ -102,9 +106,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             cmdLine = prefs.programPath.replacingOccurrences(of: "$THEME", with: "LIGHT")
 
         }
-        if prefs.verboseLogging {
-            print("Executing: ", cmdLine)
-        }
+        
+        self.logInfoIfVerbose("Executing: ", cmdLine)
         _ = executeProgramWithParameters(commandLine: cmdLine)
         _ = runWebHook(isDark)
 
@@ -124,23 +127,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let request = AF.request(valURL, method: .post, parameters: parameters)
         
         request.responseString { (data) in
-            print(data.result)
+            self.logInfoIfVerbose(data.result)
             switch data.result {
             case .success:
-                if self.prefs.verboseLogging {
-                    print("Return: ", data.value!)
-                }
+                self.logInfoIfVerbose("Return: ", data.value!)
+                self.webhookStatusMenuItem.title = "Webhook called succesfully"
             case let .failure(error):
-                if self.prefs.verboseLogging {
-                    print("Error making request: \(error)")
-                }
+                self.logInfoIfVerbose("Error making request: \(error)")
+                self.webhookStatusMenuItem.title = "Webhook request error"
             }
         }
         return true
-    }
-    
-    func monitorTheme() {
-        self.switchThemeStatusBasedOnUserPref()
     }
     
     func executeProgramWithParameters(commandLine: String) -> Bool {
@@ -149,14 +146,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         let cmdArray = commandLine.components(separatedBy: " ")
         
-       
+        if cmdArray.count < 1 {
+            return false
+        }
         
         let program = cmdArray[0]
         
         if fileManager.isExecutableFile(atPath: program) != true {
-            if self.prefs.verboseLogging {
-                print("Non-executable file:", commandLine)
-            }
+            self.logInfoIfVerbose("Non-executable file:", commandLine)
             return false
         }
         
@@ -177,21 +174,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let output = String(decoding: outputData, as: UTF8.self)
         let error = String(decoding: errorData, as: UTF8.self)
         
-        if self.prefs.verboseLogging {
-            print (output)
-            print(error)
-        }
+        self.logInfoIfVerbose(output)
+        self.logInfoIfVerbose(error)
         
         if !command.isRunning {
             let status = command.terminationStatus
             if status == 0 {
-                if self.prefs.verboseLogging {
-                    print("Task succeeded.")
-                }
+                self.logInfoIfVerbose("Task succeeded.")
+                self.scriptStatusMenuItem.title = "Script run succesfully"
             } else {
-                if self.prefs.verboseLogging {
-                    print("Task failed.")
-                }
+                self.logInfoIfVerbose("Task failed \(status).")
+                self.scriptStatusMenuItem.title = "Script failed with status \(status)"
             }
         }
         
@@ -201,13 +194,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 command.terminate()
                 let status = command.terminationStatus
                 if status == 0 {
-                    if self.prefs.verboseLogging {
-                        print("Task succeeded.")
-                    }
+                    self.logInfoIfVerbose("Task succeeded.")
                 } else {
-                    if self.prefs.verboseLogging {
-                        print("Task failed.")
-                    }
+                    self.logInfoIfVerbose("Task failed: \(status)")
                 }
             }
         }
