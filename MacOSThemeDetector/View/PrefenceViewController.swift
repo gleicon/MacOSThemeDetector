@@ -52,7 +52,6 @@ class PrefenceViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //programTimeoutValue.stringValue = "5"
         displayCurrentPreferences()
     }
     
