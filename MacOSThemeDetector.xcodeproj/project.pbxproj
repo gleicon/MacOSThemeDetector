@@ -3,26 +3,32 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C052F2325D968DD0065B0A5 /* PrefenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C052F2225D968DD0065B0A5 /* PrefenceViewController.swift */; };
+		0C052F2A25D970B20065B0A5 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C052F2925D970B20065B0A5 /* Preferences.swift */; };
 		0C92456E25D037BA00566204 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C92456D25D037BA00566204 /* AppDelegate.swift */; };
-		0C92457025D037BA00566204 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C92456F25D037BA00566204 /* ContentView.swift */; };
 		0C92457225D037BD00566204 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C92457125D037BD00566204 /* Assets.xcassets */; };
 		0C92457525D037BD00566204 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C92457425D037BD00566204 /* Preview Assets.xcassets */; };
 		0C92457825D037BD00566204 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C92457625D037BD00566204 /* Main.storyboard */; };
+		95A9F956BC31232B4AED0C9D /* Pods_MacOSThemeDetector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7987FF7DBA7C3306B4E29438 /* Pods_MacOSThemeDetector.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C052F2225D968DD0065B0A5 /* PrefenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefenceViewController.swift; sourceTree = "<group>"; };
+		0C052F2925D970B20065B0A5 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		0C92456A25D037BA00566204 /* MacOSThemeDetector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacOSThemeDetector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C92456D25D037BA00566204 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0C92456F25D037BA00566204 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0C92457125D037BD00566204 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0C92457425D037BD00566204 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0C92457725D037BD00566204 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0C92457925D037BD00566204 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0C92457A25D037BD00566204 /* MacOSThemeDetector.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacOSThemeDetector.entitlements; sourceTree = "<group>"; };
+		7987FF7DBA7C3306B4E29438 /* Pods_MacOSThemeDetector.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MacOSThemeDetector.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B317AE895C7155C99D5987E /* Pods-MacOSThemeDetector.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacOSThemeDetector.release.xcconfig"; path = "Target Support Files/Pods-MacOSThemeDetector/Pods-MacOSThemeDetector.release.xcconfig"; sourceTree = "<group>"; };
+		F59DE6876089B6B43F1318B6 /* Pods-MacOSThemeDetector.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacOSThemeDetector.debug.xcconfig"; path = "Target Support Files/Pods-MacOSThemeDetector/Pods-MacOSThemeDetector.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,17 +36,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95A9F956BC31232B4AED0C9D /* Pods_MacOSThemeDetector.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C052F2625D970410065B0A5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0C052F2925D970B20065B0A5 /* Preferences.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0C052F2725D970590065B0A5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0C052F2225D968DD0065B0A5 /* PrefenceViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		0C92456125D037BA00566204 = {
 			isa = PBXGroup;
 			children = (
 				0C92456C25D037BA00566204 /* MacOSThemeDetector */,
 				0C92456B25D037BA00566204 /* Products */,
+				AC445CD9B1CF845CE19A69ED /* Pods */,
+				F00333E9FD6D72DB0CF1228A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,8 +80,9 @@
 		0C92456C25D037BA00566204 /* MacOSThemeDetector */ = {
 			isa = PBXGroup;
 			children = (
+				0C052F2625D970410065B0A5 /* Model */,
 				0C92456D25D037BA00566204 /* AppDelegate.swift */,
-				0C92456F25D037BA00566204 /* ContentView.swift */,
+				0C052F2725D970590065B0A5 /* View */,
 				0C92457125D037BD00566204 /* Assets.xcassets */,
 				0C92457625D037BD00566204 /* Main.storyboard */,
 				0C92457925D037BD00566204 /* Info.plist */,
@@ -74,6 +100,23 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		AC445CD9B1CF845CE19A69ED /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F59DE6876089B6B43F1318B6 /* Pods-MacOSThemeDetector.debug.xcconfig */,
+				9B317AE895C7155C99D5987E /* Pods-MacOSThemeDetector.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F00333E9FD6D72DB0CF1228A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7987FF7DBA7C3306B4E29438 /* Pods_MacOSThemeDetector.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -81,9 +124,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0C92457D25D037BD00566204 /* Build configuration list for PBXNativeTarget "MacOSThemeDetector" */;
 			buildPhases = (
+				C82B32FDBA0FF26B79B437E4 /* [CP] Check Pods Manifest.lock */,
 				0C92456625D037BA00566204 /* Sources */,
 				0C92456725D037BA00566204 /* Frameworks */,
 				0C92456825D037BA00566204 /* Resources */,
+				DF2D90B01DFE5767E47D0653 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -139,12 +184,55 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C82B32FDBA0FF26B79B437E4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MacOSThemeDetector-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF2D90B01DFE5767E47D0653 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MacOSThemeDetector/Pods-MacOSThemeDetector-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MacOSThemeDetector/Pods-MacOSThemeDetector-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MacOSThemeDetector/Pods-MacOSThemeDetector-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0C92456625D037BA00566204 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C92457025D037BA00566204 /* ContentView.swift in Sources */,
+				0C052F2325D968DD0065B0A5 /* PrefenceViewController.swift in Sources */,
+				0C052F2A25D970B20065B0A5 /* Preferences.swift in Sources */,
 				0C92456E25D037BA00566204 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,6 +368,7 @@
 		};
 		0C92457E25D037BD00566204 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F59DE6876089B6B43F1318B6 /* Pods-MacOSThemeDetector.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -304,6 +393,7 @@
 		};
 		0C92457F25D037BD00566204 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B317AE895C7155C99D5987E /* Pods-MacOSThemeDetector.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
