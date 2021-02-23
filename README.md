@@ -24,7 +24,7 @@ After that open MacOSThemeDetector.xcworkspace in XCode and hack away.
 
 #### Pre-built binaries
 
-Pre built binaries are loaded into the releases page. 
-Just ownload and unzip them.
+Pre built binaries are loaded into the [releases page](https://github.com/gleicon/MacOSThemeDetector/releases/). 
+Just download and unzip them.
 
 
